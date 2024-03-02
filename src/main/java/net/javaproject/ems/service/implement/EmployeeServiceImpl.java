@@ -22,4 +22,9 @@ public class EmployeeServiceImpl implements EmployeeService {
 
         return EmployeeMapper.mapToEmployeeDto(savedEmployee);
     }
+
+    @Override
+    public EmployeeDto getEmployeebyId(Long employeeId) {
+        return null;
+    }
 }
