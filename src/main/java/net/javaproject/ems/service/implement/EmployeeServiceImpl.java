@@ -9,6 +9,9 @@ import net.javaproject.ems.repository.EmployeeRepository;
 import net.javaproject.ems.service.EmployeeService;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 
 @AllArgsConstructor
 @Service
@@ -33,4 +36,12 @@ public class EmployeeServiceImpl implements EmployeeService {
                 );
         return EmployeeMapper.mapToEmployeeDto(employee);
     }
+
+    @Override
+    public List<EmployeeDto> getAllEmployee() {
+        List<Employee> employees = employeeRepository.findAll();
+        return employees.stream().map((employee) -> EmployeeMapper.mapToEmployeeDto(employee)).collect(Collectors.toList());
+    }
+
+
 }
