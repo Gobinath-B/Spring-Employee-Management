@@ -56,6 +56,11 @@ This is the backend component of the Employee Management System. It provides RES
 - Spring Data JPA
 - MySQL
 - Maven
+  
+## Architecture
+
+![Screenshot (228)](https://github.com/Gobinath-B/Spring-Employee-Management/assets/81898167/eb7e5a2f-2f84-4b84-af67-bb2e0c6b9068)
+
 
 ## Contributing
 
