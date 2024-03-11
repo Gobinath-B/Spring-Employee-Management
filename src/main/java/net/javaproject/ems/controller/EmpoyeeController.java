@@ -31,11 +31,22 @@ public class EmpoyeeController {
          EmployeeDto employeeDto = employeeService.getEmployeebyId(employeeId);
          return ResponseEntity.ok(employeeDto);
     }
-
+;
     @GetMapping
 
     public ResponseEntity<List<EmployeeDto>> getAllEmployee(){
          List<EmployeeDto> employee = employeeService.getAllEmployee();
          return ResponseEntity.ok(employee);
+    }
+   @PutMapping("{id}")
+    public ResponseEntity<EmployeeDto> updateEmployee(@PathVariable("id") Long employeeId,@RequestBody EmployeeDto updatedEmployee){
+         EmployeeDto employeeDto = employeeService.updateEmployee( employeeId,  updatedEmployee);
+         return ResponseEntity.ok(employeeDto);
+    }
+
+    @DeleteMapping("{id}")
+    public ResponseEntity<String> deleteEmployee(@PathVariable("id") Long employeeId){
+        employeeService.deleteEmployee(employeeId);
+        return ResponseEntity.ok("Employee Deleted Successfully");
     }
 }
