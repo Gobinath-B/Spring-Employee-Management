@@ -32,7 +32,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
         Employee employee =  employeeRepository.findById(employeeId)
                 .orElseThrow(
-                        ()-> new ResourceNotFound("Employee is not exist with given id"+employeeId)
+                        ()-> new ResourceNotFound("Employee is not exist with the given id"+employeeId)
                 );
         return EmployeeMapper.mapToEmployeeDto(employee);
     }
@@ -46,7 +46,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     public EmployeeDto updateEmployee(Long employeeId, EmployeeDto updatedEmployee) {
        Employee employee = employeeRepository.findById(employeeId).orElseThrow(
-                ()-> new ResourceNotFound("Employee is not exist with given id"+employeeId)
+                ()-> new ResourceNotFound("Employee is not exist with the given id"+employeeId)
         );
 
         employee.setFirstName(updatedEmployee.getFirstName());
@@ -59,7 +59,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     public void deleteEmployee(Long employeeId) {
         Employee employee = employeeRepository.findById(employeeId).orElseThrow(
-                ()-> new ResourceNotFound("Employee is not exist with given id"+employeeId)
+                ()-> new ResourceNotFound("Employee is not exist with the given id"+employeeId)
         );
         employeeRepository.deleteById(employeeId);
     }
